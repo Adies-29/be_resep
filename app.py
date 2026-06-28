@@ -28,6 +28,10 @@ tfidf_matrix = joblib.load('tfidf_matrix.pkl')
 df_data = pd.read_pickle('df_resep.pkl')
 print("Model AI siap digunakan!")
 
+@app.route('/')
+def home():
+    return jsonify({"pesan": "Server Resep AI berjalan dengan baik!"}), 200
+
 @app.route('/cari_resep', methods=['POST'])
 def api_cari_resep():
     bahan_kulkas = ""
